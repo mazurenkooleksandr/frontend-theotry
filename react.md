@@ -32,12 +32,10 @@
       const intervalId = setInterval(() => {
         setCount(count + 1);
       }, 1000);
-
       return () => clearInterval(intervalId); // розмонтування
       }, []);
-
   </pre>
-  </br> Зазвичай в useEffect роблять запити до бекенду.
+   Зазвичай в useEffect роблять запити до бекенду.
   </p>
   </div>
 </details>
