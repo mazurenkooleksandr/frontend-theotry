@@ -204,30 +204,16 @@
        - Розділи книги або статті</br>
        - Категорії вмісту</br> 
        - Вікна або сторінки в інтерфейсі користувача.
-          <code><main>
+        <pre>
+        <main>
           <section>
             <h2>Розділ 1</h2>
             <article>
               <h3>Стаття 1</h3>
               <p>Зміст статті 1.</p>
             </article>
-            <article>
-              <h3>Стаття 2</h3>
-              <p>Зміст статті 2.</p>
-            </article>
-          </section>
-          <section>
-            <h2>Розділ 2</h2>
-            <article>
-              <h3>Стаття 3</h3>
-              <p>Зміст статті 3.</p>
-            </article>
-            <article>
-              <h3>Стаття 4</h3>
-              <p>Зміст статті 4.</p>
-            </article>
-          </section>
-        </main></code>
+        </main>
+        </pre>
   </p>
   </div>
 </details>
