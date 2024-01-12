@@ -207,10 +207,11 @@
       Наприклад:</br>
         main</br>
           section</br>
-            h2  Розділ 1  h2</br>
-            article</br>
-              p  Зміст статті 1. p</br>
-            article</br>
+              h2  Розділ  h2</br>
+              article</br>
+                p  Зміст статті p</br>
+              article</br>
+          section</br>
         main
   </p>
   </div>
@@ -226,5 +227,43 @@
       - Новини</br>
       - Звіти
     </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як використовувати тег details та summary для створення випадаючого блоку?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Теги details та summary використовуються для створення випадаючого блоку. 
+    Тег details має атрибут:
+      - open - визначає, чи відкритий випадаючий блок за замовчуванням.
+    Тег summary - визначає текст, який відображає загаловок у випадаючому блоці.
+    <pre>
+      <details open>
+        <summary>Це випадаючий блок</summary>
+        <p>Це тіло випадаючого блоку.</p>
+      </details>
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як використовувати тег time для представлення часових моментів на сторінці?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Тег time має кілька атрибутів, які використовуються для визначення часового моменту:</br>
+      - datetime - визначає дати і час часового моменту в форматі ISO 8601.</br>
+      - datetime-local - визначає дати і час часового моменту в локальному форматі.</br>
+      - hour - визначає годинник часового моменту.</br>
+      - minute - визначає хвилини часового моменту.</br>
+      - second - визначає секунди часового моменту.</br>
+      - month - визначає місяць часового моменту.</br>
+      - day - визначає день часового моменту.</br>
+      - year - визначає рік часового моменту.</p>
+   </br></br>
+      time datetime="2023-07-20T12:00:00"</br>
+      time datetime-local="2023-07-20T12:00:00"</br>
+      time hour="12" minute="00" second="00"</br>
+      time month="07" day="20" year="2023"</br>
   </div>
 </details>
