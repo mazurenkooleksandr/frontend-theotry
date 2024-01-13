@@ -356,11 +356,10 @@
   </summary>
   <div style="padding: 10px; font-size: 16px;">
     <p>Тег noscript використовується для надання резервного вмісту(це будь який HTML код) у випадку вимкненого JavaScript. 
-    <pre>
-        <noscript>
+        noscript
           [Резервний вміст]
-        </noscript>
-    </pre>
+        noscript
+    </p>
   </div>
 </details>
 <details style="margin-bottom: 15px;">
