@@ -107,7 +107,7 @@
   </summary>
   <div style="padding: 10px; font-size: 16px;">
     <p>getStaticProps та getServerSideProps - це два методи, які використовуються в Next.js для отримання даних на сервері перед рендерингом сторінок. Однак вони відрізняються в тому, коли та як вони отримують та обробляють ці дані.<br>
-    - getStaticProps:<br>
+    - getStaticProps(Static Site Generation (SSG)):<br>
     * Статична генерація:<br>
     - Використовується для статичного генерації сторінок під час збирання проекту.<br>
     - Статично згенеровані сторінки зберігаються в кеші та повторно використовуються для кожного запиту, поки не відбудеться повторне збирання проекту.<br>
@@ -115,7 +115,7 @@
     - Покращує продуктивність, оскільки сторінки заздалегідь генеруються та кешуються.<br>
     * Статичні дані:<br>
     - Ідеально підходить для сторінок, які не часто змінюються, таких як блоги, новини тощо.<br>
-    - getServerSideProps:<br>
+    - getServerSideProps(Server-Side Rendering (SSR)):<br>
     * Динамічний рендеринг:<br>
     - Використовується для генерації сторінок на сервері при кожному запиті.<br>
     - Нові дані обчислюються для кожного запиту на сервері.<br>
@@ -160,5 +160,93 @@
   </summary>
   <div style="padding: 10px; font-size: 16px;">
     <p>За допомогою бібліотеки styled-components, можна створювати динамічні локальні стилі.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як використовувати динамічні імпорти компонентів в Next.js?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Next.js підтримує динамічні імпорти, які дозволяють забезпечити ліниве завантаження компонентів, тобто завантаження компонента тільки тоді, коли він дійсно потрібний. Для використання динамічних імпортів компонентів в Next.js використовуйте функцію dynamic. <br>
+    Наприклад, const DynamicComponent = dynamic(() => import('./ActualComponent'))</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке useRouter?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>useRouter - це хук, який надається Next.js у пакеті next/router. Цей хук призначений для використання в функціональних компонентах React для отримання інформації про маршрут (URL) та навігації на клієнтській стороні.<br>
+    Основні функції useRouter включають:<br>
+    1. Отримання інформації про маршрут: За допомогою useRouter ви можете отримати різні параметри маршруту, такі як query (параметри URL), pathname (шлях до поточної сторінки), asPath (актуальний шлях з параметрами) та інші. Наприклад, const router = useRouter(); router.query, router.pathname, router.asPath<br>
+    2.Навігація на інші сторінки: Хук useRouter також надає можливість використовувати push, replace та інші методи для навігації на інші сторінки.<br>
+    Mожна використовувати useRouter тільки в компонентах, які викликаються на клієнтській стороні. Це не працює на сервері під час серверного рендерингу.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке API-маршрути в Next.js?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>API-маршрути в Next.js — це спосіб створення серверної логіки та обробки HTTP-запитів в рамках вашого Next.js додатку. Зазвичай це використовується для створення API для взаємодії з фронтендом вашого додатку чи для взаємодії з зовнішніми службами.<br>
+    Основні риси API-маршрутів в Next.js:<br>
+    1. Розташування в pages/api: Файли, розташовані в папці pages/api, автоматично визначаються як API-маршрути. Наприклад, файл pages/api/users.js буде доступний за шляхом /api/users.<br>
+    2. Інтеграція з фронтендом: API-маршрути Next.js можна викликати з фронтенду (наприклад, з React-компонентів) за допомогою стандартних HTTP-запитів.<br>
+    3.Використання функції handler: У кожному API-маршруті ви експортуєте функцію handler, яка приймає req (об'єкт запиту) та res (об'єкт відповіді). Ця функція обробляє логіку запиту та визначає відповідь.<br>
+    Наприклад, <br>export default function handler(req, res) {<br>
+    res.status(200).json({ message: 'Hello, world!' });}</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як використовувати cookies в Next.js?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В Next.js можливо використовувати модуль cookies з бібліотеки cookie для роботи з кукісами. npm install cookie</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як використовувати імпорт статичних ресурсів (зображення, шрифти) в Next.js?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>У Next.js для імпорту статичних ресурсів, таких як зображення, шрифти та інші статичні файли, використовується спеціальний синтаксис та папка public. Наприклад, <br>
+    1. Зображення:<br>
+    - Створення папки public:Створіть папку з назвою public у кореневій директорії вашого Next.js проекту.<br>
+    - Розміщення зображення: Помістіть ваші зображення в папку public/images. Наприклад, public/images/example.jpg.<br>
+    2. Шрифти:<br>
+    - Створення папки public: Створіть папку з назвою public у кореневій директорії вашого Next.js проекту.<br>
+    - Розміщення шрифтів: Помістіть ваші шрифти в папку public/fonts. Наприклад, public/fonts/example.ttf.<br>
+    Аналогічно можна додавати інші статичні ресурси, такі як CSS-файли, JS-файли, JSON та інші, в папку public, а потім імпортувати їх у компонентах та сторінках за допомогою спеціального синтаксису /public. Важливо зауважити, що файли, розміщені у папці public, автоматично стають доступними на сервері та будуть оптимізовані для видачі на клієнтській стороні.
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке Image?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>У Next.js модуль Image є частиною next/image і використовується для оптимізації завантаження та відображення зображень на веб-сайті. Це допомагає автоматично оптимізувати та кешувати зображення для покращення швидкодії сайту. Перш ніж використовувати Image в Next.js, переконайтеся, що ви встановили модуль: npm install next/image.<br>
+    Атрибути:<br>
+    1. src (обов'язковий): Шлях або URL до зображення.<br>
+    2. alt (рекомендований): Текстовий опис зображення для полегшення доступу та SEO.<br>
+    3. width (обов'язковий): Ширина зображення в пікселях.<br>
+    4. height (обов'язковий): Висота зображення в пікселях.<br>
+    5. layout (опціонально): Тип розташування зображення. Зазвичай використовується responsive для автоматичного визначення розмірів. Інші варіанти включають fixed та intrinsic.<br>
+    6. objectFit (опціонально): Стиль об'єкта CSS для контролю вигляду зображення в контейнері.<br>
+    7. priority (опціонально): Помічає зображення як "пріоритетне", що дозволяє воно завантажуватися раніше інших зображень.<br>
+    8. loading (опціонально): Задає поведінку завантаження зображення. Може бути eager (завантажити негайно) або lazy (ліниве завантаження).<br>
+    9. className (опціонально): Клас CSS, який буде застосований до тега зображення.
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як використовувати інтернаціоналізацію(мультимовність) в Next.js?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В Next.js для інтернаціоналізації можна використовувати бібліотеку next-i18next. <br>
+    1. Встановіть бібліотеку. <br>
+    2. Створіть файли конфігурації для next-i18next та i18next. У кореневій папці вашого проекту створіть файл next-i18next.config. У папці public створіть папку locales та в ній файли з перекладами для кожної мови (наприклад, en.json, es.json, тощо).js. За допомогою const { t } = useTranslation('common'); можна обробляти json.</p>
   </div>
 </details>
