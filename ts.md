@@ -177,3 +177,127 @@
     </p>
   </div>
 </details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як ви використовуєте "namespace" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В TypeScript "namespace" - це спеціальний засіб для організації коду та створення глобальних областей імен. Namespace дозволяє групувати пов'язаний код в одній області імені, щоб уникнути конфліктів імен між різними частинами програми.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як ви реалізуєте інкапсуляцію в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Інкапсуляція в TypeScript - це принцип об'єктно-орієнтованого програмування, який дозволяє приховати деталі реалізації об'єкта від його користувачів. Це робиться за допомогою модифікаторів доступу, які визначають, які частини об'єкта можуть бути доступні ззовні.<br>
+    В TypeScript існує чотири модифікатори доступу:<br>
+    - public - доступний з будь-якої точки програми;<br>
+    - protected - доступний із класу, в якому він визначений, а також з його нащадків;<br>
+    - private - доступний лише із класу, в якому він визначений;<br>
+    - readonly - доступний лише для читання.
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке абстрактний клас в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Абстрактний клас в TypeScript - це клас, який не може бути створений безпосередньо. Абстрактні класи використовуються для визначення загальної поведінки, яка може бути реалізована в конкретних класах. Абстрактні класи оголошуються за допомогою ключового слова abstract перед ключовим словом class.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "модифікатори доступу" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Модифікатори доступу в TypeScript - це слова-ключі, які використовуються для визначення, як члени класу можуть бути доступні з інших частин програми.<br>
+    В TypeScript існує чотири модифікатори доступу:<br>
+    - public - доступний з будь-якої точки програми;<br>
+    - protected - доступний із класу, в якому він визначений, а також з його нащадків;<br>
+    - private - доступний лише із класу, в якому він визначений;<br>
+    - readonly - доступний лише для читання.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "intersection types" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Intersection types в TypeScript - це спосіб комбінувати два чи більше типи в один. Вони використовують оператор & для створення нового типу, який включає всі властивості та методи кожного з об'єднаних типів. Це дозволяє вам створювати складні типи, що поєднують різні аспекти програми.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "union types" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Union types в TypeScript дозволяють об'єднувати кілька типів в один, вказуючи їх через символ |. Це дозволяє зазначати, що значення може мати один із зазначених типів. Union types надають гнучкість і використовуються для роботи з різними можливими типами значень.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "Type Assertion" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Type Assertion - це оператор, який використовується для інформування компілятора про тип змінної або значення. У TypeScript, Type Assertion використовується для того, щоб повідомити компілятору, що тип змінної або значення насправді є іншим, ніж те, що він визначив. Це може бути корисно в тих випадках, коли компілятор не може інферувати тип автоматично. Type Assertion використовується за допомогою оператора as.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "never" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В TypeScript, never - це тип, який не може приймати ніяких значень. Цей тип використовується для позначення ситуацій, в яких значення ніколи не може бути отримане. Наприклад, функція, яка завжди генерує помилку, має тип never.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "as const" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В TypeScript, ключове слово as const використовується для вказівки на те, що змінна або об'єкт мають константний тип, тобто їх значення або структура не можуть бути змінені. let y = "world" as const;</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "keyof" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В TypeScript ключове слово keyof використовується для створення типу, який містить всі можливі ключі (властивості) об'єкта чи іншого типу. Воно надає можливість динамічно визначати ключі та використовувати їх для доступу до властивостей об'єкта.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "Tuple Types" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В TypeScript "Tuple Types" представляють собою спеціальний тип для роботи з кортежами. Кортежі - це масиви з фіксованою кількістю елементів, де кожен елемент може мати визначений свій тип. Типове визначення кортежу виглядає як перерахування типів для кожного елемента.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "Global Types" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>У TypeScript термін "Global Types" використовується для опису типів, які є доступними на рівні всього проекту або взагалі на рівні глобального простору імен. Глобальні типи можуть бути визначені за допомогою ключового слова declare в файлі з розширенням .d.ts. Основна ідея полягає в тому, що ви можете визначати типи, які будуть доступні у всіх частинах вашого коду, без необхідності їх повторюваного визначення.<br>
+    <pre>
+      declare global {
+        interface AppConfig {
+            apiUrl: string;
+            debugMode: boolean;
+        }
+      }
+    </pre>
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке "Triple-slash Directives" в TypeScript?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>"Triple-slash directives" в TypeScript - це спеціальні коментарі, які можуть бути використані для вказівки деяких конфігураційних параметрів або залежностей в межах файлу. Ці коментарі починаються з трьох слешів (///) і можуть містити деякі директиви, такі як reference, amd-dependency, amd-module, тощо. Однією з часто використовуваних "Triple-slash directives" є директива /// <reference path="..." />, яка вказує на залежність від іншого файлу. </p>
+  </div>
+</details>
