@@ -777,7 +777,7 @@
     Як вирішити проблему мерцання (flickering) при використанні анімації?
   </summary>
   <div style="padding: 10px; font-size: 16px;">
-    <p>Використовуйте requestAnimationFrame: Функція requestAnimationFrame() викликає анімацію на наступному кадрі, коли браузер готовий до оновлення. Це може допомогти уникнути мерцання.
+    <p>Використовуйте requestAnimationFrame: Функція requestAnimationFrame() викликає анімацію на наступному кадрі, коли браузер готовий до оновлення. Це може допомогти уникнути мерцання.<br>
     <pre>
       function animate() {
         // Ваш код анімації тут
@@ -793,5 +793,165 @@
   </summary>
   <div style="padding: 10px; font-size: 16px;">
     <p>Для стилізації парних елементів можна використовувати :nth-child(even) або :nth-of-type(even). Для стилізації непарних елементів використовуйте :nth-child(odd) або :nth-of-type(odd).</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як змінити стиль переключника чекбокса за допомогою CSS?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Ви можете змінити стиль переключника чекбокса за допомогою CSS, використовуючи псевдоклас :checked для стилізації вибраного чекбокса та його стилізацію за допомогою селектора input[type="checkbox"].<br>
+    <pre>
+      /* Стилізація невибраного чекбокса */
+      input[type="checkbox"] {
+          /* Задайте розміри та кольори за бажанням */
+          width: 20px;
+          height: 20px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+      /* Стилізація вибраного чекбокса */
+      input[type="checkbox"]:checked {
+          /* Задайте стиль, який ви хочете для вибраного чекбокса */
+          background-color: #007bff; /* Приклад кольору для вибраного стану */
+          border-color: #007bff;
+          color: #fff; /* Колір тексту (якщо потрібно) */
+      }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як застилізувати елемент неактивним (disabled) за допомогою CSS?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Щоб зробити елемент неактивним (disabled) за допомогою CSS, ви можете використовувати псевдоклас :disabled. Він застосовується до елементів, які мають атрибут disabled.<br>
+    <pre>
+      /* Стилізація неактивної кнопки */
+      button:disabled {
+          opacity: 0.5; /* Задайте прозорість або інші стилі за бажанням */
+          cursor: not-allowed; /* Змінює вид курсору при наведенні */
+          /* Інші стилі, які ви хочете застосувати для неактивної кнопки */
+      }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке специфічність?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Специфічність (specificity) в CSS визначає, як браузер вирішує конфлікти між стилів, коли до елемента застосовані різні набори правил. Специфічність вказує на те, яке правило має перевагу при визначенні того, які стилі будуть застосовані до конкретного елемента.<br>
+    Специфічність вимірюється комбінацією чотирьох чисел:<br>
+    - Кількість ідентифікаторів (IDs): Кожен ідентифікатор (наприклад, #element-id) в зазначенні селектора додає 100 до специфічності.<br>
+    - Кількість класів, атрибутів та псевдокласів: Кожен клас, атрибут або псевдоклас (наприклад, .class, [attribute], :hover) додає 10 до специфічності.<br>
+    - Кількість елементів та псевдоелементів: Кожен елемент або псевдоелемент (наприклад, div, ::before) додає 1 до специфічності.<br>
+    Наприклад:<br>
+    - h1 має специфічність 1-0-0 (1 елемент).<br>
+    - .container має специфічність 0-1-0 (1 клас).<br>
+    - #main-content має специфічність 1-0-1 (1 ідентифікатор і 1 елемент).<br>
+    - .container p має специфічність 0-2-0 (2 класи).</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке спрайти в css?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Спрайти (CSS sprites) в CSS - це метод, який дозволяє комбінувати кілька зображень в один файл (спрайт), і використовувати лише частину цього файлу для відображення окремих елементів на сторінці. Використання спрайтів може значно поліпшити ефективність завантаження сторінки, зменшити кількість HTTP-запитів і покращити швидкість завантаження.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Як використовувати іменовані розташування (named areas) в CSS Grid?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Іменовані розташування (named areas) в CSS Grid - це зручний спосіб визначення розміщення елементів у сітці, використовуючи назви замість числових значень. Це полегшує розуміння та підтримку коду, а також поліпшує читабельність макету.<br>
+    <pre>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 100px);
+        grid-template-areas:
+            "header header header"
+            "main sidebar sidebar"
+            "footer footer footer";
+      }
+      .header {
+          grid-area: header;
+      }
+      .main {
+          grid-area: main;
+      }
+      .sidebar {
+          grid-area: sidebar;
+      }
+      .footer {
+          grid-area: footer;
+      }
+    </pre>
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке shape-outside?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>shape-outside - це властивість CSS, яка використовується для визначення форми, яка обтікається текстом або іншими блоковими елементами. Зазвичай ця властивість використовується разом з елементами, що мають зображення або форму, яка визначає область, де текст повинен обтікати.<br>
+    Основні значення:<br>
+    - none: Закріплює, що немає конкретної форми, і текст не обтікає навколо жодної форми.<br>
+    - shape-box: Вказує прямокутну область, де текст буде обтікати. Наприклад, shape-outside: rect(0, 0, 100px, 100px);.<br>
+    - shape-image: Вказує зображення, яке використовується як форма для обтікання тексту.<br>
+    - shape-margin: Вказує відступ від форми до тексту.<br>
+    - basic-shape: Вказує прості форми, такі як circle(), ellipse(), inset(), polygon(), які можуть бути використані для обтікання тексту.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке BEM (Блок, Елемент, Модифікатор)?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>BEM (Блок, Елемент, Модифікатор) - це методологія та конвенція найменування класів у HTML і CSS. Складається:<br>
+    - .button - блок.<br>
+    - .button__text - елемент блоку .button.<br>
+    - .button--large - модифікатор блоку .button, який змінює його розмір.
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке векторні та растрові зображення?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Векторні та растрові зображення - це два основних типи графічних форматів, які використовуються у веб-дизайні та графіці. Вони відрізняються за методом зберігання та подання інформації про зображення.<br>
+    1. Векторні зображення:<br>
+    Опис:<br>
+    - Векторні зображення визначаються за допомогою математичних об'єктів, таких як лінії, криві, полігони та текстові елементи. Вони описують форми та колір і можуть бути легко масштабовані без втрати якості.<br>
+    Характеристики:<br>
+    - Масштабованість без втрати якості.<br>
+    - Займають мало місця в пам'яті.<br>
+    - Ідеальні для логотипів, іконок, графічних елементів, які можуть бути масштабовані на різних розмірах.<br>
+    Приклади форматів:<br>
+    - SVG (Scalable Vector Graphics), AI (Adobe Illustrator), EPS (Encapsulated PostScript).<br>
+    2. Растрові (бітові) зображення:<br>
+    Опис:<br>
+    - Растрові зображення складаються з пікселів, де кожен піксель має свій колір та положення. Розмір растрових зображень фіксований, і їх важко масштабувати без втрати якості.<br>
+    Характеристики:<br>
+    - Великі розміри файлів при великій роздільній здатності.<br>
+    - Втрата якості при масштабуванні великих розмірів.<br>
+    - Зазвичай використовуються для фотографій та складних зображень.<br>
+    Приклади форматів:<br>
+    - JPEG (Joint Photographic Experts Group), PNG (Portable Network Graphics), GIF (Graphics Interchange Format), BMP (Bitmap).<br>
+    Області застосування:<br>
+    Векторні:<br>
+    - Логотипи та іконки.<br>
+    - Графічні елементи веб-сайтів.<br>
+    - Малюнки для друкованих матеріалів.<br>
+    Растрові:<br>
+    - Фотографії та зображення з реалістичними деталями.<br>
+    - Текстури та рисунки в іграх.<br>
+    Зображення для соціальних мереж, фотогалерей тощо.</p>
   </div>
 </details>
