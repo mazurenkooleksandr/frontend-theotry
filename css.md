@@ -1456,3 +1456,292 @@
     - Відсутність схлопування, якщо є рамка або вивід тексту: Якщо між блоками є рамка, вивід тексту або елемент, який створює новий форматуючий контекст, це заважає схлопуванню.</p>
   </div>
 </details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке CSS-атрибут (attr)?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>За допомогою функції CSS attr() можна отримувати значення атрибута вибраного елемента та використовувати це значення у таблиці стилів. Функція працює і з псевдоелементами. І тут повертається значення атрибута елемента, котрий формується псевдо-елемент.
+    <pre>
+      .my-element {
+        background-color: attr(data-color);
+      }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Для чого використовується ключове слово currentColor у CSS?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Ключове слово currentColor в CSS використовується для визначення значення кольору, яке визначене для властивості color для елемента. За допомогою currentColor ви можете динамічно використовувати значення поточного кольору тексту як значення для інших властивостей, таких як border-color, box-shadow тощо.
+    <pre>
+      div {
+        color: blue; /* Встановлює колір тексту */
+        border: 2px solid currentColor; /* Зберігає колір тексту як колір контура */
+        padding: 10px;
+      }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Які фільтри є у CSS?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>1. grayscale() (відтінки сірого): Змінює кольори елемента на відтінки сірого. Може приймати значення від 0 (оригінальний колір) до 1 (повністю сірий).<br>
+    <pre>
+      img {
+        filter: grayscale(0.5);
+      }
+    </pre>
+    2. blur() (розмиття): Додає розмиття до елемента. Може приймати значення в пікселях або в інших одиницях вимірювання.<br>
+    <pre>
+      .background {
+        filter: blur(5px);
+      }
+    </pre>
+    3. brightness() (яскравість): Змінює яскравість елемента. Може приймати значення від 0 (чорний) до 1 (оригінальна яскравість) та більше за 1 (збільшена яскравість).<br>
+    <pre>
+      .highlight {
+        filter: brightness(1.5);
+      }
+    </pre>
+    4. contrast() (контраст): Змінює контраст елемента. Може приймати значення від 0 (повний контраст) до 1 (нульовий контраст).<br>
+    <pre>
+      .low-contrast {
+        filter: contrast(0.7);
+      }
+    </pre>
+    5. sepia() (сепія): Додає ефект сепії до елемента. Може приймати значення від 0 (немає ефекту) до 1 (повний ефект сепії).<br>
+    <pre>
+      .vintage-photo {
+        filter: sepia(0.8);
+      }
+    </pre>
+    6. saturate() (насиченість): Змінює насиченість кольорів елемента. Може приймати значення від 0 (нульова насиченість) до 1 (оригінальна насиченість) та більше за 1 (збільшена насиченість).<br>
+    <pre>
+      .colorful {
+        filter: saturate(1.5);
+      }
+    </pre>
+    7. hue-rotate() (обертання тону): Обертає тон кольорів у градусах. Може приймати значення від 0 до 360.<br>
+    <pre>
+      .color-shift {
+        filter: hue-rotate(90deg);
+      }
+    </pre>
+    8. invert() (інвертування): Інвертує кольори елемента. Може приймати значення від 0 (оригінальні кольори) до 1 (повне інвертування).<br>
+    <pre>
+      .negative-image {
+        filter: invert(1);
+      }
+    </pre>
+    9. drop-shadow() (тінь): Додає тінь до елемента. Приймає значення для горизонтального та вертикального зсуву, розмиття і коліру тіні.<br>
+    <pre>
+      .box {
+        filter: drop-shadow(10px 10px 5px #888888);
+      }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке text-rendering?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Властивість text-rendering в CSS визначає, як текст повинен бути рендерингом на екрані. Ця властивість дозволяє вам вибирати між різними оптимізаціями для відображення тексту, залежно від ваших вимог до якості та швидкості.<br>
+    1. auto: Залишає рендеринг тексту на вибір браузера. Зазвичай це призводить до якісного відображення тексту, але браузер може вирішити, коли використовувати оптимізації для підвищення швидкості.<br>
+    <pre>
+      p {
+        text-rendering: auto;
+      }
+    </pre>
+    2. optimizeSpeed: Застосовує швидше, але менш якісне рендеринг тексту. Це може бути корисно для швидкодії на мобільних пристроях або на сторінках з великою кількістю тексту, де якість менш важлива.<br>
+    <pre>
+      p {
+        text-rendering: optimizeSpeed;
+      }
+    </pre>
+    3.optimizeLegibility: Застосовує оптимізації для поліпшення читабельності тексту, навіть за рахунок трохи меншої швидкодії. Це значення рекомендується для використання в основному для великих шрифтів, таких як ті, що використовуються в заголовках.<br>
+    <pre>
+      h1 {
+        text-rendering: optimizeLegibility;
+      }
+    </pre>
+    4. geometricPrecision: Використовує більш точні геометричні обчислення при рендерингу тексту, що може призводити до кращої точності відображення, особливо для малих розмірів тексту.<br>
+    <pre>
+      p {
+        text-rendering: geometricPrecision;
+      }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке text-decoration?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>text-decoration в CSS використовується для встановлення стилів декорування тексту, таких як підкреслення, лінія верхнього чи нижнього краю, а також лінія прокидання тексту. <br>
+    1. none: Знімає будь-яке декорування тексту. Зазвичай використовується для скасування будь-яких зазначених стилів.<br>
+    <pre>
+      p {
+        text-decoration: none;
+      }
+    </pre>
+    2. underline: Додає підкреслення тексту.<br>
+    <pre>
+      a {
+        text-decoration: underline;
+      }
+    </pre>
+    3. overline: Додає лінію сверху тексту.<br>
+    <pre>
+      h1 {
+        text-decoration: overline;
+      }
+    </pre>
+    4. line-through: Додає лінію посередині тексту.<br>
+    <pre>
+      del {
+        text-decoration: line-through;
+      }
+    </pre>
+    5. underline overline: Додає як підкреслення, так і лінію сверху тексту.<br>
+    <pre>
+      h2 {
+        text-decoration: underline overline;
+      }
+    </pre>
+    6. underline line-through: Додає як підкреслення, так і лінію посередині тексту.<br>
+    <pre>
+      s {
+        text-decoration: underline line-through;
+      }
+    </pre>
+    7. inherit: Унаслідує значення декорування тексту від батьківського елемента.<br>
+    <pre>
+      .child {
+        text-decoration: inherit;
+      }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке pointer-events?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Властивість pointer-events в CSS визначає, як елемент реагує на події введення миші та сенсорного екрана. Ця властивість визначає, чи має елемент споживати події введення та перешкоджати їх передачі іншим елементам, або ж ігнорувати їх і дозволяти їм проходити через елемент.<br>
+    1. auto: Це значення за замовчуванням. Елемент буде реагувати на події введення, як очікується.<br>
+    <pre>
+    .interactive {
+      pointer-events: auto;
+    }
+    </pre>
+    2. none: Елемент не реагує на події введення, і вони проходять через нього.<br>
+    <pre>
+      .non-interactive {
+        pointer-events: none;
+      }
+    </pre>
+    3. visiblePainted: Елемент перешкоджає подіям миші, але не реагує на них.<br>
+    <pre>
+    .block-mouse-events {
+      pointer-events: visiblePainted;
+    }
+    </pre>
+    4. visibleFill: Аналогічно visiblePainted, але з іншою поведінкою при використанні в заповненні області.<br>
+    <pre>
+    .fill-mouse-events {
+      pointer-events: visibleFill;
+    }
+    </pre>
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке outline?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>outline в CSS використовується для встановлення контуру (зовнішньої межі) для елемента. Контур є лінією, яка оточує елемент, і він не впливає на розміри або композицію елемента. Контур візуально виділяє елемент і може бути корисним для покращення доступності та фокусування.<br>
+    - outline-color: Визначає колір контуру. Значення може бути будь-яким допустимим значенням кольору, таким як ім'я кольору, шестнадцятковий код кольору або ключове слово.<br>
+    - outline-style: Визначає стиль лінії контуру. Може мати значення, такі як dotted (точковий), dashed (пунктирний), solid (суцільний) та інші.<br>
+    - outline-width: Визначає товщину контуру. Може бути вказано у пікселях, відсотках, em чи інших одиницях вимірювання.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Які CSS-властивості використовуються для створення анімацій та плавних переходів?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>1. transition-property: Визначає властивість (або властивості), яка буде плавно змінюватися.<br>
+    <pre>
+      .element {
+        transition-property: width;
+      }
+    </pre>
+    2. transition-duration: Визначає тривалість переходу.<br>
+    <pre>
+      .element {
+        transition-duration: 0.5s;
+      }
+    </pre>
+    3. transition-timing-function: Визначає функцію витікання, яка визначає, як змінюється значення властивості протягом тривалості переходу.<br>
+    <pre>
+      .element {
+          transition-timing-function: ease-in-out;
+        }
+    </pre>
+    4. transition-delay: Визначає затримку перед початком переходу.<br>
+    <pre>
+    .element {
+      transition-delay: 0.2s;
+    }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке :has()?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Псевдоклас :has() - це псевдоклас CSS, який дозволяє стилізувати елемент, якщо у нього є дочірній або сусідній елемент, який відповідає певному селектору.<br>
+    <pre>
+      .my-block {
+        background-color: red;
+      }
+      .my-block :has(.my-class) {
+        background-color: blue;
+      }
+    </pre>
+    У цьому випадку, псевдоклас :has() перевіряє, чи є у блоку дочірній елемент з класом .my-class. Якщо такий елемент є, то до блоку застосовується правило з кольором фону синій.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке в css >, ~, +?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>У CSS символи >, ~, + використовуються в селекторах для визначення відносин між елементами.
+    1. Символ > використовується для визначення прямого потомка. Наприклад, селектор div > ul визначить всі елементи ul, які є дочірніми елементами елементів div.<br>
+    2. Символ ~ використовується для визначення будь-якого наступного брата. Наприклад, селектор div ~ p визначить всі елементи p, які є наступними братами елементів div.<br>
+    3. Символ + використовується для визначення безпосереднього наступного брата. Наприклад, селектор div + p визначить всі елементи p, які є безпосередньо наступними братами елементів div.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке @font-face?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>@font-face - це CSS-правило, яке дозволяє веб-розробникам вбудовувати власні шрифти на веб-сторінки. За допомогою @font-face ви можете вказати браузеру, звідки завантажувати шрифт, і як використовувати його на веб-сторінці.<br>
+    <pre>
+      @font-face {
+        font-family: 'Назва_шрифту';
+        src: url('шлях_до_файлу_шрифту.woff') format('woff'); /* Підтримується різні формати шрифтів */
+        /* Додаткові властивості, такі як font-weight, font-style, etc. */
+      }
+    </pre>
+  </div>
+</details>
