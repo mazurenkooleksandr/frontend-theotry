@@ -3,7 +3,7 @@
     Що таке MobX і як він відрізняється від інших бібліотек для керування станом?
   </summary>
   <div style="padding: 10px; font-size: 16px;">
-    <p>MobX - це бібліотека для управління станом в додатках, написаних на JavaScript або TypeScript. Головна ідея MobX - це зробити управління станом простим і ефективним, забезпечуючи автоматичну реактивність.<br>
+    <p>MobX - це бібліотека для управління станом в додатках, написаних на JavaScript або TypeScript. Головна ідея MobX - це зробити управління станом простим і ефективним, забезпечуючи автоматичну реактивність. MobX не змінює один і той же обєкт, не створює новий.<br>
     Основні характеристики MobX:<br>
     - Реактивність: MobX використовує концепцію реактивності, щоб автоматично визначати, коли і які частини стану потрібно оновлювати при зміні даних. Це дозволяє створювати код, який реагує на зміни стану без вручну написаного коду для визначення оновлень.<br>
     - Простота використання: MobX призначений для зручного використання і має простий API. Він не вимагає великої кількості додаткового коду для визначення стору та оновлення його стану.<br>
@@ -224,5 +224,291 @@
       decrementFunction();
       console.log(myStore.count); // Виведе: 0
     </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке decorate?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>decorate - це функція в MobX, яка використовується для налаштування декораторів для полів класу, таких як observable, computed, та action. 
+    <pre>
+    import { decorate, observable, computed, action } from 'mobx';
+    class MyClass {
+      myObservableField = 'Initial value';
+      myComputedField() {
+        return this.myObservableField.length;
+      }
+      myAction = () => {
+        this.myObservableField = 'New value';
+      }
+    }
+    decorate(MyClass, {
+      myObservableField: observable,
+      myComputedField: computed,
+      myAction: action,
+    });
+    </pre></p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке makeObservable?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>makeObservable - це функція в MobX, яка використовується для налаштування декораторів для полів класу, таких як observable, computed та action. Вона дозволяє явно визначити, які властивості класу повинні бути спостережуваними, обчислюваними чи діями, і які необхідно включити в реактивні об'єкти MobX.
+    <pre>
+    import { makeObservable, observable, computed, action } from 'mobx';
+    class MyClass {
+      myObservableField = 'Initial value';
+      constructor() {
+        makeObservable(this, {
+          myObservableField: observable,
+          myComputedField: computed,
+          myAction: action,
+        });
+      }
+      get myComputedField() {
+        return this.myObservableField.length;
+      }
+      myAction = () => {
+        this.myObservableField = 'New value';
+      }
+    }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Різниця між makeObservable та decorate.
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>makeObservable та decorate - це дві альтернативні функції в MobX, які використовуються для налаштування декораторів для полів класу, таких як observable, computed, та action. Ось деякі ключові різниці між ними:<br>
+    1. Спосіб виклику:<br>
+    - decorate є функцією, яка викликається зовні класу, і вона приймає клас та об'єкт конфігурації декораторів.<br>
+    - makeObservable є методом класу, і його слід викликати всередині конструктору класу. Він приймає екземпляр класу та об'єкт конфігурації декораторів.<br>
+    2. Використання в класі:<br>
+    - decorate визначається поза класом, і його викликають після визначення класу.<br>
+    - makeObservable викликається всередині конструктору класу.<br>
+    3. Динамічність:<br>
+    - decorate дозволяє динамічно визначати конфігурацію декораторів після визначення класу.<br>
+    - makeObservable також дозволяє динамічно визначати конфігурацію, але він викликається всередині конструктору, тобто при створенні нового екземпляру класу.<br>
+    4. Зручність синтаксису:<br>
+    - Синтаксис decorate зазвичай є більш компактним та декларативним.<br>
+    - Синтаксис makeObservable може виглядати більш імперативним та менш зручним для визначення конфігурації декораторів.<br>
+    5. Підтримка декораторів:<br>
+    - decorate ширше підтримує сучасний синтаксис декораторів і може використовуватися у багатьох сучасних проектах.<br>
+    - makeObservable може бути корисним у випадках, коли вам потрібно підтримувати старший синтаксис або якщо ви хочете взаємодіяти з MobX у більш імперативний спосіб.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке autorun?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Autorun - це функція в MobX, яка запускає функцію, яка відповідає за побічний ефект, щоразу, коли змінюється будь-який стан, який вона спостерігає. Вона також запускається один раз, коли створюється сама autorun. Autorun приймає одну функцію як аргумент. Ця функція може виконувати будь-які побічні ефекти, такі як логування, збереження або оновлення інтерфейсу користувача. Autorun використовується в MobX для запуску побічних ефектів, які залежать від стану MobX. Наприклад, autorun можна використовувати для логування змін стану, оновлення інтерфейсу користувача або виконання асинхронних операцій.
+    <pre>
+    import { autorun, observable } from 'mobx';
+    const myStore = observable({
+      value: 0,
+    });
+    const disposer = autorun(() => {
+      console.log('Current value:', myStore.value);
+    });
+    // При кожній зміні `myStore.value`, виведеться нове значення
+    // Приклад зміни даних
+    myStore.value = 10;
+    // Виведе: "Current value: 10"
+    // Закриваємо autorun (відключає відслідковування)
+    disposer();
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке toJS?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>toJS - це функція в MobX, яка використовується для перетворення об'єктів MobX (спостережуваних об'єктів, обчислювальних властивостей тощо) в прості JavaScript-об'єкти без внутрішніх MobX-посилань та об'єктів. Важливо враховувати, що toJS повертає "глибоку" копію об'єкта, тобто всі вкладені об'єкти також будуть скопійовані та приведені до стандартного JavaScript-об'єкту.
+    <pre>
+    import { observable, toJS } from 'mobx';
+    const myObservableObject = observable({
+      name: 'John',
+      age: 25,
+    });
+    const plainObject = toJS(myObservableObject);
+    console.log(plainObject);
+    // Результат: { name: 'John', age: 25 }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Які концепції в Mobx?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>Mobx базується на 4-х концепціях: action, observable, computed, reactions.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке configure?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>configure() - це функція в MobX, яка використовується для налаштування поведінки MobX. Вона приймає об'єкт з параметрами налаштування.<br>
+    enforceActions: Визначає, чи MobX повинен вимагати використання дій (actions) для модифікації стану (за замовчуванням 'never').<br>
+    computedRequiresReaction: Визначає, чи MobX вимагатиме наявності реакцій для обчислювальних властивостей (за замовчуванням false).<br>
+    observableRequiresReaction: Визначає, чи MobX вимагатиме наявності реакцій для зміни спостережуваного об'єкту (за замовчуванням false).<br>
+    disableErrorBoundaries: Забороняє використання областей помилок для вилучення помилок, спричинених MobX (за замовчуванням false).<br>
+    safeDescriptors: Робить MobX менш чутливим до об'єктів з небезпечними дескрипторами властивостей (за замовчуванням true).<br>
+    disableErrorBoundaries: Забороняє MobX виводити застереження у консоль для деяких стандартних випадків (за замовчуванням false).
+  <pre>
+  import { configure } from 'mobx';
+  configure({
+    // Параметри та опції
+  });
+  </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке extendobservable?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>extendObservable - це функція в бібліотеці MobX, яка використовується для динамічного додавання нових спостережуваних властивостей до об'єктів. Ця функція дозволяє розширювати об'єкти, надаючи їм спроможність реагувати на зміни та спостерігати за ними.
+    <pre>
+    import { observable, extendObservable } from 'mobx';
+    const myObject = observable({ existingProperty: 'value' });
+    // Розширюємо об'єкт спостережуваними властивостями
+    extendObservable(myObject, {
+      newProperty: 'newValue',
+      anotherProperty: 42,
+    });
+    console.log(myObject);
+    // { existingProperty: 'value', newProperty: 'newValue', anotherProperty: 42 }
+    </pre>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке makeAutoObservable?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>makeAutoObservable() - це функція в MobX, яка використовується для автоматичного визначення всіх властивостей об'єкта як спостерігаються. Цей метод зручний для використання, коли ви хочете створити спостерігається стан, але не хочете визначати кожну властивість як спостерігається вручну.</p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке when?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>У MobX, функція when використовується для створення умов, за якими буде викликана певна функція або дія. Це дозволяє реактивно реагувати на певні стани або зміни у вашому застосунку. Функція when приймає два аргументи: умову і функцію, яка викликатиметься, коли умова виконується.
+    <pre>
+      import { when } from 'mobx';
+      when(
+        // Умова, коли викликати функцію
+        () => someConditionIsTrue(),
+        // Функція, яку викликати, коли умова виконується
+        () => {
+          // Ваш код або дії
+        }
+      );
+    </pre>
+    Параметри when:<br>
+    - Умова: Це функція, яка повертає true або false. Коли умова стає істинною, викликається функція, передана в другий аргумент.<br>
+    - Функція: Це функція, яка викликатиметься, коли умова стає істинною. Ця функція викликається один раз.
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке reaction?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В MobX, reaction є функцією, яка дозволяє вам створювати реакції на зміни у спостережуваних даних. Реакції викликаються автоматично, коли вказані залежності змінюються. Функція reaction приймає два основні аргументи: функцію, яка має бути відстежуваною (спостережуваною), і функцію-реакцію, яка викликатиметься при кожній зміні залежностей.<br>
+    <pre>
+    import { reaction } from 'mobx';
+    const disposer = reaction(
+      // Функція, яка повертає значення, яке буде відстежуватися
+      () => someObservableValue,
+      // Функція-реакція, яка викликається при кожній зміні залежностей
+      (reactionValue, reaction) => {
+        // Ваш код реакції
+      }
+    );
+    // Зупиняє реакцію (відключає відслідковування)
+    disposer();
+    </pre>
+    Параметри reaction:<br>
+    - Функція для відстеження: Це функція, результат якої буде відстежуватися. Якщо це спостережуване значення зміниться, функція-реакція буде викликана.<br>
+    - Функція-реакція: Це функція, яка викликається при кожній зміні значення, повернутого функцією для відстеження. Ця функція отримує нове значення та саму реакцію як параметри.
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке autorun?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>У MobX, autorun є функцією, яка використовується для автоматичного стеження за обчисленнями та діями і автоматично викликається при кожній зміні в залежностях, які вона виявила. Функція autorun приймає функцію, яка повинна бути викликана та відстежуватися, і викликає цю функцію при кожній зміні в залежностях. При цьому autorun відслідковує автоматично всі використані спостережувані значення, та видаляє реакцію, якщо вона більше не використовується в обчисленні або дії.
+    <pre>
+      import { autorun } from 'mobx';
+      const disposer = autorun(
+        // Функція, яка буде викликана та відстежуватися
+        (reaction) => {
+          // Ваш код, що викликається при зміні залежностей
+          console.log('Autorun triggered');
+        }
+      );
+      // Зупиняє autorun (відключає відслідковування)
+      disposer();
+    </pre>
+    Параметри autorun:<br>
+    - Функція для відстеження: Це функція, яка буде викликана при кожній зміні залежностей, які вона виявляє. При виклику отримується об'єкт reaction, який дозволяє декларативно визначати, які залежності використовує autorun.
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке disposer?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>В MobX, disposer - це функція, яку повертається після виклику функції-реакції (наприклад, autorun, reaction), яка дозволяє зупиняти або відключати цю реакцію. За допомогою disposer можна припинити слідкування та відслідковування змін в залежностях.
+    <pre>
+    import { observable, autorun } from 'mobx';
+    const myStore = observable({
+      count: 0,
+    });
+    const disposer = autorun(() => {
+      console.log(`Count is: ${myStore.count}`);
+    });
+    myStore.count = 1; // Виведе: Count is: 1
+    myStore.count = 2; // Виведе: Count is: 2
+    // Зупиняє autorun (відключає відслідковування)
+    disposer();
+    </pre>
+    </p>
+  </div>
+</details>
+<details style="margin-bottom: 15px;">
+  <summary style="cursor: pointer; outline: none; font-weight: bold; font-size: 18px;">
+    Що таке runInAction?
+  </summary>
+  <div style="padding: 10px; font-size: 16px;">
+    <p>runInAction - це функція в MobX, яка запускає функцію в контексті дії. Це означає, що всі зміни стану, які відбуваються всередині функції, будуть захищені від інших потоків виконання. runInAction приймає одну функцію як аргумент. Ця функція може виконувати будь-які побічні ефекти, такі як логування, збереження або оновлення інтерфейсу користувача. runInAction повертає об'єкт, який містить результат функції, переданої в якості аргументу. runInAction використовується в MobX для запуску побічних ефектів, які залежать від стану MobX. Наприклад, runInAction можна використовувати для логування змін стану, оновлення інтерфейсу користувача або виконання асинхронних операцій.
+    <pre>
+    import { runInAction } from "mobx";
+    const state = observable({
+      count: 0,
+    });
+    const incrementCount = () => {
+      // Змінюємо стан в контексті дії
+      runInAction(() => {
+        state.count++;
+      });
+    };s
+    incrementCount();
+    console.log(state.count); // 1
+    </pre></p>
   </div>
 </details>
